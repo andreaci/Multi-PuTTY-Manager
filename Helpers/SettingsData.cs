@@ -134,6 +134,14 @@ namespace SessionManagement
             }
         }
 
+        internal bool IsPuttyConfigCorrect()
+        {
+            if(PuttyLocation == null) return false;
+            if(!File.Exists(PuttyLocation)) return false;
+
+            return true;
+        }
+
         [JsonIgnore]
         public readonly Dictionary<String, decimal> Ports = new(3) {
             {"SSH", 22m },

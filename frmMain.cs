@@ -74,6 +74,10 @@ namespace SessionManagement
                 this.hook.KeyPressed += this.hook_KeyPressed;
                 this.hook.RegisterHotKey(SessionManagement.ModifierKeys.Control, Keys.Tab);
                 this.hook.RegisterHotKey(SessionManagement.ModifierKeys.Control | SessionManagement.ModifierKeys.Shift, Keys.Tab);
+
+                if (!CurrentApplicationSettings.IsPuttyConfigCorrect()) {
+                    mnuToolsOption_Click(sender, e);
+                }
             }
             catch //(Exception ex)
             {
